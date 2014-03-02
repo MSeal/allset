@@ -1,16 +1,25 @@
 import os
 from setuptools import setup
 
-def read(fname):
+def readMD(fname):
     # Utility function to read the README file.
-    with open(os.path.join(os.path.dirname(__file__), fname)) as fhandle:
-        return fhandle.read()
+    full_fname = os.path.join(os.path.dirname(__file__), fname)
+    if 'PANDOC_PATH' in os.environ:
+        import pandoc
+        pandoc.core.PANDOC_PATH = os.environ['PANDOC_PATH']
+        doc = pandoc.Document()
+        with open(full_fname) as fhandle:
+            doc.markdown = fhandle.read()
+        return doc.rst
+    else:
+        with open(full_fname) as fhandle:
+            return fhandle.read()
 
 setup(
     name='allset',
     version="1.0.0",
     description='Generates dynamic bindings for module imports',
-    long_description=read('README.md'),
+    long_description=readMD('README.md'),
     packages=['allset'],
     author='Matthew Seal',
     author_email='mseal@opengov.com',
