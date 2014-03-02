@@ -15,7 +15,7 @@ setup(
     author='Matthew Seal',
     author_email='mseal@opengov.com',
     url='https://github.com/OpenGov/allset',
-    download_url='https://github.com/OpenGov/allset/tarball/v1.0.0#egg=allset-1.0.0',
+    download_url='https://github.com/OpenGov/allset/tarball/v1.0.0',
     keywords=['importing'],
     classifiers=[
         'Development Status :: 4 - Beta',
