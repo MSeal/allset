@@ -24,5 +24,4 @@ def bind_all_submodules(namespace):
             module = sys.modules[submodule]
         else:
             module = module_loader.find_module(submodule).load_module(submodule)
-        print submodule, _get_module_name(namespace)
         namespace[name] = module
