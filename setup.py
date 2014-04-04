@@ -15,9 +15,10 @@ def readMD(fname):
         with open(full_fname) as fhandle:
             return fhandle.read()
 
+version = '1.0.1'
 setup(
     name='allset',
-    version="1.0.1",
+    version=version,
     description='Generates dynamic bindings for module imports',
     long_description=readMD('README.md'),
     packages=['allset'],
@@ -25,7 +26,7 @@ setup(
     author_email='mseal@opengov.com',
     url='https://github.com/OpenGov/allset',
     license='New BSD',
-    download_url='https://github.com/OpenGov/allset/tarball/v1.0.1',
+    download_url='https://github.com/OpenGov/allset/tarball/v' + version,
     keywords=['importing'],
     classifiers=[
         'Development Status :: 4 - Beta',
